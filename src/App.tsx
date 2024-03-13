@@ -23,6 +23,7 @@ function App() {
     <MainBar></MainBar>
     <NavBar></NavBar>
     <Routes>
+    <Route path="/" element={<Offers className="" />} />
     <Route path="/Offers" element={<Offers className="" />} />
     <Route path="/Events" element={<Events className="" />} />
     <Route path="/Coupons" element={<Coupons className="" />} />
