@@ -15,13 +15,13 @@ function Me(props:MeProps){
     const {data,isLoading,status} = useQuery({queryKey:["me"],queryFn:()=>showClaimedCoupons(user!.email!),enabled:typeof user != "undefined",staleTime:1000*60*10})
     console.log(data)
     return <div className={props.className}>
-                <div className="flex flex-col p-2 bg-base-black font-poppins">
+                <div className="flex flex-col p-2 bg-base-black font-poppins md:grid md:grid-cols-3 md:gap-4">
                 {isLoading? "Loading" : null}
                 {data ? 
                 data.length != 0 ? 
                 data.map(coupon  => {
                     const mcoupon = coupon.MCoupon as MCoupon
-                    return <div key={coupon.mid} className="bg-slate-950 border-black border-3 rounded-md mb-4 ">
+                    return <div key={coupon.mid} className="bg-slate-950 border-black border-3 rounded-md mb-4 md:col-span-1">
                     <div className="px-4 ">
                     <div className="flex flex-row justify-between items-center w-full my-2">
                         <span className="text-slate-300 text-xs font-light">{mcoupon.cday}</span>

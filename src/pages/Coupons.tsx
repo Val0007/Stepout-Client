@@ -108,13 +108,13 @@ function Coupons(props:CouponProps){
         <div className={props.className}>
         <MessageCoupon message={showMessage} className={`fixed z-50 h-full w-full bg-black bg-opacity-50 px-2 text-white justify-center items-center ${showMessageCoupon ? "flex" : "hidden"}`} closeModal={()=>{setMessageShow(false)}}></MessageCoupon>
         <CouponModal className={`fixed z-50 h-full w-full bg-black bg-opacity-50 px-2 text-white justify-center items-center ${showCouponModal ? "flex" : "hidden"}`} coupon={selectedCoupon} closeModal={()=>{setCouponShow(false)}}></CouponModal>
-        <div className="flex flex-col p-2 bg-base-black font-poppins">
+        <div className="flex flex-col p-2 bg-base-black font-poppins md:grid md:grid-cols-3 md:gap-4">
             {isFetching ? <>Loading ... </> : null}
             {error ? <>Some Error Occured</> : null}
             {data ? 
             data.pages.map((couponPage,i) => {
                return couponPage.data.map((coupon,ci) => {
-                return <div key={coupon.mid} className=" mb-4 px-4 rounded-md border-black border-3 bg-slate-950" >
+                return <div key={coupon.mid} className=" mb-4 px-4 rounded-md border-black border-3 bg-slate-950 md:col-span-1" >
                     <div className="flex flex-row justify-between items-center w-full my-2">
                         <span className="text-slate-300 text-xs font-light">{coupon.cday}</span>
                         <span className="text-slate-300 text-xs font-light flex flex-row items-center justify-start"><FaRegClock className="mr-1"></FaRegClock>{coupon.cstart} - {coupon.cend}</span>

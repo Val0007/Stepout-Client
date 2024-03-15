@@ -49,13 +49,13 @@ function Offers(props:OffersProps){
 
     return <>
         <div className={props.className}>
-        <div className="flex flex-col p-2 bg-base-black font-poppins">
+        <div className="flex flex-col p-2 bg-base-black font-poppins md:grid md:grid-cols-3 md:gap-4">
             {isFetching ? <>Loading ... </> : null}
             {error ? <>Some Error Occured</> : null}
             {data ? 
             data.pages.map(offerPage => {
                return offerPage.data.map(offer => {
-                return <div key={offer.id} className=" bg-slate-950 mb-4 px-4 rounded-md border-black border-3">
+                return <div key={offer.id} className=" bg-slate-950 mb-4 px-4 rounded-md border-black border-3 md:col-span-1">
                     <div className="flex flex-row justify-between items-center w-full my-2">
                         <span className="text-slate-300 text-xs font-light">{offer.ODay}</span>
                         <span className="text-slate-300 text-xs font-light flex flex-row items-center justify-start"><FaRegClock className="mr-1"></FaRegClock>{offer.OStart} - {offer.OEnd}</span>
