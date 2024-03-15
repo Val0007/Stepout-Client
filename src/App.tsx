@@ -22,13 +22,15 @@ function App() {
     <PageProvider>
     <MainBar></MainBar>
     <NavBar></NavBar>
+    <div className="h-screen ">
     <Routes>
-    <Route path="/" element={<Offers className="" />} />
-    <Route path="/Offers" element={<Offers className="" />} />
-    <Route path="/Events" element={<Events className="" />} />
-    <Route path="/Coupons" element={<Coupons className="" />} />
-    <Route path="/Me" element={<Me />} />
+    <Route path="/" element={<Offers className="w-full h-full bg-base-black" />} />
+    <Route path="/Offers" element={<Offers className="w-full h-full bg-base-black" />} />
+    <Route path="/Events" element={<Events className="w-full h-full bg-base-black" />} />
+    <Route path="/Coupons" element={<Coupons className="w-full h-full bg-base-black" />} />
+    <Route path="/Me" element={<Me className="w-full h-full bg-base-black" />} />
     </Routes>
+    </div>
     </PageProvider>
     </LocationProvider>
     </AuthProvider>

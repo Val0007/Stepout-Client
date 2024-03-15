@@ -16,15 +16,15 @@ function MainBar(){
 
 
 
-    return <div className="grid grid-cols-12  h-12 w-full py-2 px-1 bg-slate-800">
-        <div className="text-xs border-slate-200 border-2 rounded-full px-1 col-span-3 flex justify-center items-center text-white capitalize cursor-pointer"
+    return <div className="grid grid-cols-12  h-12 w-full py-2 px-1  bg-nav-green">
+        <div className="text-xs border-black border-2 rounded-full px-1 col-span-3 flex justify-center items-center text-slate-300 capitalize cursor-pointer"
         onClick={()=>{
             resetLocation!()
         }}
         >
-        <FaMapMarkerAlt color="white" size={10}  className="mr-1" ></FaMapMarkerAlt>
+        <FaMapMarkerAlt color="black" size={12}  className="mr-1" ></FaMapMarkerAlt>
         {preflocation}</div>
-        <div className="font-thin text-xl justify-self-center col-span-6 text-white">StepOut.site</div>
+        <div className="font-semibold tracking-wider text-xl justify-self-center col-span-6 text-slate-300 font-barlow">StepOut.site</div>
         {user ? 
         !showlogout ? 
         <div className="col-span-3 border-slate-200 border-2 rounded-full text-sm tracking-wider h-7 w-7 flex justify-center items-center justify-self-end">
@@ -52,7 +52,7 @@ function MainBar(){
             await supabase.auth.signInWithOAuth({
                 provider: 'google',
                 options:{
-                    redirectTo:"http://localhost:5173/Offers"
+                    redirectTo:"http://localhost:5174/Offers"
                 }
               })
         }}>

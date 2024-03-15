@@ -4,14 +4,18 @@ import { useAuth } from "../utils/AuthContext"
 import { FaMapMarkerAlt, FaRegClock } from "react-icons/fa"
 import { MCoupon, addHttps } from "../utils/types"
 
-function Me(){
+interface MeProps{
+    className:string
+}
+
+function Me(props:MeProps){
 
     const {user} = useAuth()
 
     const {data,isLoading,status} = useQuery({queryKey:["me"],queryFn:()=>showClaimedCoupons(user!.email!),enabled:typeof user != "undefined",staleTime:1000*60*10})
     console.log(data)
-    return <div className="">
-                <div className="flex flex-col p-2 w-full h-full">
+    return <div className={props.className}>
+                <div className="flex flex-col p-2 bg-base-black font-poppins">
                 {isLoading? "Loading" : null}
                 {data ? 
                 data.length != 0 ? 
@@ -23,8 +27,8 @@ function Me(){
                         <span className="text-slate-300 text-xs font-light">{mcoupon.cday}</span>
                         <span className="text-slate-300 text-xs font-light flex flex-row items-center justify-start"><FaRegClock className="mr-1"></FaRegClock>{mcoupon.cstart} - {mcoupon.cend}</span>
                     </div>
-                    <div className=" text-base-blue text-xl tracking-wide my-2 font-black text-balance break-normal">{mcoupon.cname}</div>
-                    <div className="text-white font-thin tracking-wider flex flex-row items-center justify-start"><FaMapMarkerAlt color="" size={14} className="mr-1" ></FaMapMarkerAlt>{mcoupon.cshop}</div>
+                    <div className=" text-white text-2xl tracking-wide my-2 font-black text-balance break-normal">{mcoupon.cname}</div>
+                    <div className="text-slate-300 text-lg tracking-wider flex flex-row items-center justify-start"><FaMapMarkerAlt color="" size={14} className="mr-1" ></FaMapMarkerAlt>{mcoupon.cshop}</div>
                     <div className="flex flex-row justify-between items-center">
                     <div className=" text-slate-400 text-xs font-light my-2 underline truncate" ><a href={addHttps(mcoupon.clink)} target="_blank" rel="noopener noreferrer">{mcoupon.clink}</a></div>
                     <div className="text-slate-300 text-xs capitalize">{mcoupon.Oplace}</div>

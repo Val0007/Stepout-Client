@@ -3,13 +3,15 @@ export enum StepoutTypes{
 }
 
 export enum StepoutLocations{
-    BesantNagar = "besantnagar" , AnnaNagar = "annanagar"
+    BesantNagar = "besantnagar" , 
+    Mylpore = "mylapore"
+    //AnnaNagar = "annanagar"
 }
 
 export interface OfferType{
     creator: string;
     ODay: string;
-    description: string;
+    ODesc: string;
     OEnd: string;
     OLink: string;
     OName: string;

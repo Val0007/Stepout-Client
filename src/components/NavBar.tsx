@@ -55,12 +55,12 @@ function NavBar(){
 
     return <div className="sticky top-0 left-0 right-0 z-50">
     
-    <div className=" bg-sec-blue pl-2 py-4 flex flex-row ">
+    <div className="bg-gradient-to-b from-nav-green to-slate-800 pl-2 py-4 flex flex-row ">
         {
             tabs.map((val,i) => {
                 if(val == StepoutTypes.Me && !user) return 
                 return <div key={i}>
-                <span className="text-md mr-2 tracking-wide cursor-pointer" ref={tabrefs[i]}  onClick={()=>{
+                <span className="text-md mr-2 tracking-wide cursor-pointer text-white" ref={tabrefs[i]}  onClick={()=>{
                     navigate(`/${tabs[i]}`)
                     setPage!(tabs[i])
                 }}>{val}</span>

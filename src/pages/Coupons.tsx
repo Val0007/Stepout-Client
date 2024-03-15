@@ -108,7 +108,7 @@ function Coupons(props:CouponProps){
         <div className={props.className}>
         <MessageCoupon message={showMessage} className={`fixed z-50 h-full w-full bg-black bg-opacity-50 px-2 text-white justify-center items-center ${showMessageCoupon ? "flex" : "hidden"}`} closeModal={()=>{setMessageShow(false)}}></MessageCoupon>
         <CouponModal className={`fixed z-50 h-full w-full bg-black bg-opacity-50 px-2 text-white justify-center items-center ${showCouponModal ? "flex" : "hidden"}`} coupon={selectedCoupon} closeModal={()=>{setCouponShow(false)}}></CouponModal>
-        <div className="flex flex-col p-2 w-full h-full">
+        <div className="flex flex-col p-2 bg-base-black font-poppins">
             {isFetching ? <>Loading ... </> : null}
             {error ? <>Some Error Occured</> : null}
             {data ? 
@@ -119,8 +119,8 @@ function Coupons(props:CouponProps){
                         <span className="text-slate-300 text-xs font-light">{coupon.cday}</span>
                         <span className="text-slate-300 text-xs font-light flex flex-row items-center justify-start"><FaRegClock className="mr-1"></FaRegClock>{coupon.cstart} - {coupon.cend}</span>
                     </div>
-                    <div className=" text-base-blue text-xl tracking-wide my-2 font-black text-balance break-normal">{coupon.cname}</div>
-                    <div className="text-white font-thin tracking-wider flex flex-row items-center justify-start"><FaMapMarkerAlt color="" size={14} className="mr-1" ></FaMapMarkerAlt>{coupon.cshop}</div>
+                    <div className=" text-white text-2xl tracking-wide my-2 font-black text-balance break-normal">{coupon.cname}</div>
+                    <div className="text-slate-300 text-lg tracking-wider flex flex-row items-center justify-start"><FaMapMarkerAlt color="" size={14} className="mr-1" ></FaMapMarkerAlt>{coupon.cshop}</div>
                     <div className="grid grid-cols-10 mb-2 ">
                     <div className=" text-slate-400 text-xs font-light my-2 truncate underline col-span-6"><a href={addHttps(coupon.clink)} target="_blank">{coupon.clink}</a></div>
                     <button className={`text-xs text-white px-2 py-2 rounded col-span-4  border-2 border-slate-600 ${coupon.available ? (coupon.available === true ? "bg-green-800 " : "bg-red-800") : (coupon.available === false ? "bg-red-800" : "bg-slate-900")} `}
@@ -172,13 +172,13 @@ function Coupons(props:CouponProps){
         })
             : null}
         <div className="py-4 w-full text-center flex flex-col justify-center items-center">
-        {isFetchingNextPage ? "Loading" : null}
+        {isFetchingNextPage ? <span className="text-slate-300 font-light">Loading</span> : null}
         {hasNextPage && !isFetchingNextPage ?
-        <span className="px-4 py-2 bg-slate-800 text-white rounded-full cursor-pointer text-sm tracking-wider" onClick={()=>{
+        <span className="px-4 py-2 bg-nav-green text-white rounded-full cursor-pointer text-sm tracking-wider" onClick={()=>{
             fetchNextPage()
         }}>Load More</span>
         : isFetching ? null 
-        :  <span className="text-slate-800 font-light">No More Coupons to Show</span> }
+        :  <span className="text-slate-300 font-light">No More Coupons to Show</span> }
         </div>
         </div>
 
