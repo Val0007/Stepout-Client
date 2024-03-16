@@ -8,9 +8,18 @@
   <body>
     <div id="root"></div>
     <script>
-      if(navigator.userAgent.includes("Instagram")){
-          window.location.href = "https://app.stepout.site";
-      }
+      var ua = navigator.userAgent || navigator.vendor;
+  var isInstagram = (ua.indexOf('Instagram') > -1) ? true : false;
+  var str = navigator.userAgent;
+  var i = str.indexOf("Instagram");
+  if (isInstagram) {
+    if (/iPad|iPhone|iPod/.test(ua)) {
+      window.location.href = 'googlechrome://app.stepout.site';
+      return;
+    }
+    window.location.href = 'intent:https://app.stepout.site#Intent;end';
+    return;
+  }
     </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
