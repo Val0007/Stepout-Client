@@ -61,8 +61,8 @@ function Offers(props:OffersProps){
                         <span className="text-slate-300 text-xs font-light flex flex-row items-center justify-start"><FaRegClock className="mr-1"></FaRegClock>{offer.OStart} - {offer.OEnd}</span>
                     </div>
                     <div className=" text-white text-2xl tracking-wide my-2 font-black text-balance break-normal">{offer.OName}</div>
-                    <div className="text-slate-300 text-lg font-light tracking-wider flex flex-row items-center justify-start"><FaMapMarkerAlt color="" size={14} className="mr-1" ></FaMapMarkerAlt>{offer.OShop}</div>
-                    <div className=" text-slate-400 text-xs font-light my-2 underline" ><a href={addHttps(offer.OLink)} target="_blank" rel="noopener noreferrer">{offer.OLink}</a></div>
+                    <div className="text-slate-300 text-lg font-light tracking-wider flex flex-row items-center justify-start truncate"><FaMapMarkerAlt color="" size={14} className="mr-1" ></FaMapMarkerAlt><span className=" truncate">{offer.OShop}</span> </div>
+                    <div className=" text-slate-400 text-xs font-light my-2 underline mb-4 mt-2" ><a href={addHttps(offer.OLink || "")} target="_blank" rel="noopener noreferrer">{offer.OLink|| ""}</a></div>
                 </div>
             })
         })

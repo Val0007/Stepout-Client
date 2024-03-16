@@ -94,9 +94,9 @@ function Events(props:OffersProps){
                         <span className="text-slate-300 text-xs font-light flex flex-row items-center justify-start"><FaRegClock className="mr-1"></FaRegClock>{offer.OStart} - {offer.OEnd}</span>
                     </div>
                     <div className="  text-white text-2xl tracking-wide my-2 font-black text-balance break-normal">{offer.OName}</div>
-                    <div className="text-slate-300 text-lg tracking-wider flex flex-row items-center justify-start"><FaMapMarkerAlt color="" size={14} className="mr-1" ></FaMapMarkerAlt>{offer.OShop}</div>
-                    <div className="flex flex-row justify-between">
-                    <div className=" text-slate-400 text-xs font-light my-2 underline truncate" ><a href={addHttps(offer.OLink)} target="_blank" rel="noopener noreferrer">{offer.OLink}</a></div>
+                    <div className="text-slate-300 text-lg tracking-wider flex flex-row items-center justify-start"><FaMapMarkerAlt color="" size={14} className="mr-1" ></FaMapMarkerAlt> <span className=" truncate">{offer.OShop}</span> </div>
+                    <div className="flex flex-row justify-between mb-4 mt-2">
+                    <div className=" text-slate-400 text-xs font-light my-2 underline truncate" ><a href={addHttps(offer.OLink || "")} target="_blank" rel="noopener noreferrer">{offer.OLink || ""}</a></div>
                     <button className="text-slate-300 bg-black h-6 w-6 rounded-full border-2 border-white flex justify-center items-center"
                     onClick={async ()=>{
                         console.log("teu")

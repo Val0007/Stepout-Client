@@ -3,6 +3,53 @@ import supabase from "./supabase"
 
 const url = "https://api.stepout.site"
 
+
+export async function getOfferCount(place:string):Promise<string>{
+    try{
+        const result = await fetch(`${url}/offers/${place}/0`)
+        const data:OfferType[] = await result.json()
+        if(data.length >= 10){
+            return "10+"
+        }
+        else{
+            return String(data.length)
+        }
+    }
+    catch(e){
+        throw e
+    }
+}
+export async function getCouponCount(place:string):Promise<string>{
+    try{
+        const result = await fetch(`${url}/coupons/${place}/0`)
+        const data:OfferType[] = await result.json()
+        if(data.length >= 10){
+            return "10+"
+        }
+        else{
+            return String(data.length)
+        }
+    }
+    catch(e){
+        throw e
+    }
+}
+export async function getEventCount(place:string):Promise<string>{
+    try{
+        const result = await fetch(`${url}/events/${place}/0`)
+        const data:OfferType[] = await result.json()
+        if(data.length >= 10){
+            return "10+"
+        }
+        else{
+            return String(data.length)
+        }
+    }
+    catch(e){
+        throw e
+    }
+}
+
 export async function getOffers(place:string,page:number){
     try{
         const result = await fetch(`${url}/offers/${place}/${page}`)
